@@ -3,43 +3,38 @@ type FormDataType = {
     year: number,
 }
 
-interface DataProps {
-    data: FormDataType;
-    setData: any;
-}
-
-interface TaxBracket {
+interface ITaxBracket {
     max?: number;
     min: number;
     rate: number;
 }
 
-interface TaxData {
-    tax_brackets: TaxBracket[];
+interface ITaxData {
+    tax_brackets: ITaxBracket[];
 }
 
-interface TaxDetail {
+interface ITaxDetail {
     max?: string;
     min: string;
     tax: string;
     rate: string;
 }
 
-interface TaxCalculatorResult {
+interface ITaxCalculatorResult {
     totalTaxes: string;
     effectiveRate: string;
-    taxDetails: TaxDetail[];
+    taxDetails: ITaxDetail[];
 }
 
 
-interface DataStateProps {
+interface IDataStateProps {
     isSubmiting: boolean;
     setIsSubmitting: Dispatch<SetStateAction<boolean>>;
     taxData: FormDataType;
     setTaxData: Dispatch<SetStateAction<FormDataType>>;
 }
 
-interface GetTaxBracketsProps {
+interface IGetTaxBrackets {
     year: number
     setData: Dispatch<SetStateAction<FormDataType>>
     setIsError: Dispatch<SetStateAction<boolean>>
@@ -47,7 +42,7 @@ interface GetTaxBracketsProps {
 }
 
 
-interface ResultsProps {
+interface IResultsProps {
     income: number;
     data: TaxData;
     isLoading: boolean;

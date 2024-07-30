@@ -1,7 +1,7 @@
 import { taxCalculator } from '@/lib';
 import { FC } from 'react';
 
-export const Results: FC<ResultsProps> = ({
+export const Results: FC<IResultsProps> = ({
   income,
   data,
   isLoading,

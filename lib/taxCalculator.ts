@@ -1,8 +1,8 @@
 import { formatCurrency } from '@/lib';
 
-export function taxCalculator(income: number, taxData: TaxData): TaxCalculatorResult {
+export function taxCalculator(income: number, taxData: ITaxData): ITaxCalculatorResult {
     let totalTaxes = 0;
-    let taxDetails: TaxDetail[] = [];
+    let taxDetails: ITaxDetail[] = [];
 
     for (const bracket of taxData.tax_brackets) {
         if (income >= bracket.min) {

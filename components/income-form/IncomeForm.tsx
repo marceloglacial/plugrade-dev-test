@@ -3,7 +3,7 @@ import { DEFAULT_YEAR, MIN_INCOME } from '@/constants';
 import { useYears } from '@/hooks';
 import { FC, useState } from 'react';
 
-export const IncomeForm: FC<DataStateProps> = (props): JSX.Element => {
+export const IncomeForm: FC<IDataStateProps> = (props): JSX.Element => {
   const { data: taxYears, isLoading, isError } = useYears();
   const [formData, setFormData] = useState<FormDataType>(props.taxData);
 

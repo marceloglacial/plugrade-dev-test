@@ -1,6 +1,6 @@
 'use client';
 import { IncomeForm, Results } from '@/components';
-import { API_URL, DEFAULT_YEAR } from '@/constants';
+import { DEFAULT_YEAR } from '@/constants';
 import { getTaxBrackets } from '@/lib';
 import { useEffect, useState } from 'react';
 
@@ -13,14 +13,14 @@ export default function Home() {
     year: DEFAULT_YEAR,
   });
 
-  const stateProps = {
+  const dataStateProps: IDataStateProps = {
     isSubmiting,
     setIsSubmitting,
     taxData,
     setTaxData,
   };
 
-  const resultProps: ResultsProps = {
+  const resultProps: IResultsProps = {
     income: taxData.income,
     data,
     isLoading: isSubmiting,
@@ -35,12 +35,12 @@ export default function Home() {
         setIsError,
         setIsSubmitting,
       });
-  }, [isSubmiting]);
+  }, [isSubmiting, taxData.year]);
 
   return (
     <main className='py-16 p-4 md:p-24'>
       <div className='income-form flex flex-wrap gap-8'>
-        <IncomeForm {...stateProps} />
+        <IncomeForm {...dataStateProps} />
         <Results {...resultProps} />
       </div>
     </main>

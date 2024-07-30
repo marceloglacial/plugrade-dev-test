@@ -2,7 +2,7 @@
 import { API_URL } from '@/constants'
 import { useEffect, useState } from 'react'
 
-export const useTaxBrackets = (year: number, props: DataStateProps) => {
+export const useTaxBrackets = (year: number, props: IDataStateProps) => {
     const [data, setData] = useState<any>(null);
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [isError, setIsError] = useState<string | null>(null);
