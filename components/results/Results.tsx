@@ -1,5 +1,6 @@
 import { taxCalculator } from '@/lib';
 import { FC } from 'react';
+import { ErrorState, LoadingState } from '@/components';
 
 export const Results: FC<IResultsProps> = ({
   income,
@@ -7,8 +8,8 @@ export const Results: FC<IResultsProps> = ({
   isLoading,
   isError,
 }): JSX.Element => {
-  if (isLoading) return <>Loading ...</>;
-  if (isError) return <>ERROR!</>;
+  if (isLoading) return <LoadingState />;
+  if (isError) return <ErrorState />;
   if (!data?.tax_brackets) return <></>;
 
   const result = taxCalculator(income, data);
