@@ -1,21 +1,17 @@
-'use client';
-import { useTaxBrackets } from '@/hooks';
 import { taxCalculator } from '@/lib';
 import { FC } from 'react';
 
-export const Results: FC<DataStateProps> = (props): JSX.Element => {
-  const { data, isLoading, isError } = useTaxBrackets(
-    props.taxData.year,
-    props
-  );
-
+export const Results: FC<ResultsProps> = ({
+  income,
+  data,
+  isLoading,
+  isError,
+}): JSX.Element => {
   if (isLoading) return <>Loading ...</>;
-  if (isError) return <>Error!</>;
-  if (!data) return <></>;
+  if (isError) return <>ERROR!</>;
+  if (!data?.tax_brackets) return <></>;
 
-  console.log('isLoading', isLoading);
-
-  const result = taxCalculator(props.taxData.income, data);
+  const result = taxCalculator(income, data);
 
   return (
     <div className='results'>

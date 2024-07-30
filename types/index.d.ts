@@ -37,6 +37,19 @@ interface DataStateProps {
     setIsSubmitting: Dispatch<SetStateAction<boolean>>;
     taxData: FormDataType;
     setTaxData: Dispatch<SetStateAction<FormDataType>>;
-    showResults: boolean;
-    setShowResults: Dispatch<SetStateAction<boolean>>;
+}
+
+interface GetTaxBracketsProps {
+    year: number
+    setData: Dispatch<SetStateAction<FormDataType>>
+    setIsError: Dispatch<SetStateAction<boolean>>
+    setIsSubmitting: Dispatch<SetStateAction<boolean>>
+}
+
+
+interface ResultsProps {
+    income: number;
+    data: TaxData;
+    isLoading: boolean;
+    isError: boolean;
 }

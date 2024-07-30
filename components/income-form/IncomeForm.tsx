@@ -21,7 +21,6 @@ export const IncomeForm: FC<DataStateProps> = (props): JSX.Element => {
     e.preventDefault();
     props.setIsSubmitting(true);
     props.setTaxData(formData);
-    props.setShowResults(true);
   };
 
   return (
