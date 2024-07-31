@@ -3,8 +3,8 @@ import { styles } from './LoadingStateStyles';
 
 export const LoadingState: FC = (): JSX.Element => {
   return (
-    <div className={styles.contaner}>
-      <p>Calculating your taxes ...</p>
+    <div data-testid='loading-state' className={styles.contaner}>
+      <p data-testid='loading-state-title'>Calculating your taxes ...</p>
     </div>
   );
 };

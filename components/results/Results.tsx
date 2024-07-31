@@ -32,22 +32,22 @@ export const Results: FC<IResultsProps> = ({
         <tbody>
           {result.taxDetails.map((bracket, index) => (
             <tr key={index}>
-              <td>{bracket.min}</td>
-              <td>{bracket.max}</td>
-              <td>{bracket.tax}</td>
-              <td>{bracket.rate}</td>
+              <td data-testid={`bracket-${index}-min`}>{bracket.min}</td>
+              <td data-testid={`bracket-${index}-max`}>{bracket.max}</td>
+              <td data-testid={`bracket-${index}-tax`}>{bracket.tax}</td>
+              <td data-testid={`bracket-${index}-rate`}>{bracket.rate}</td>
             </tr>
           ))}
         </tbody>
         <tfoot className='font-bold'>
           <tr>
             <td colSpan={2}>Total taxes owned</td>
-            <td>{result.totalTaxes}</td>
+            <td data-testid='total-taxes'>{result.totalTaxes}</td>
             <td className='text-center'> - </td>
           </tr>
           <tr>
             <td colSpan={3}>Effective Rate</td>
-            <td>{result.effectiveRate}</td>
+            <td data-testid='effective-rate'>{result.effectiveRate}</td>
           </tr>
         </tfoot>
       </table>
