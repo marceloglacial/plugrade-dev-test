@@ -1,3 +1,3 @@
-export * from './formatCurrency'
-export * from './taxCalculator'
-export * from './getTaxBrackets'
+export * from './formatCurrency/formatCurrency'
+export * from './taxCalculator/taxCalculator'
+export * from './getTaxBrackets/getTaxBrackets'
