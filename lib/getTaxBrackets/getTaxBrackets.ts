@@ -1,9 +1,7 @@
-import { API_URL } from '@/constants';
-
 export const getTaxBrackets = async ({ year, setData, setIsError, setIsSubmitting }: IGetTaxBrackets) => {
     try {
         setIsError(false);
-        const response = await fetch(`${API_URL}/${year}`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/${year}`);
         if (!response.ok) {
             const errorObject = await response.json();
             console.error('Server error:', errorObject.errors);
