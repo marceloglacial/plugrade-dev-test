@@ -30,6 +30,10 @@ Navigate to [http://localhost:5001](http://localhost:5001). You should be greete
 
 More information: [https://github.com/Points/interview-test-server](https://github.com/Points/interview-test-server)
 
+## Setup ENV files
+
+Rename `.env.example` to `.env.local`
+
 ## Running the Frontend Aplication
 
 ```bash
