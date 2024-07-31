@@ -2,15 +2,12 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { Results } from './Results';
-import { ErrorState, LoadingState } from '@/components';
 import { taxCalculator } from '@/lib';
 
-// Mock the taxCalculator function
 jest.mock('@/lib', () => ({
   taxCalculator: jest.fn(),
 }));
 
-// Mock the ErrorState and LoadingState components
 jest.mock('@/components', () => ({
   ErrorState: () => <div>Error loading data</div>,
   LoadingState: () => <div>Loading...</div>,
