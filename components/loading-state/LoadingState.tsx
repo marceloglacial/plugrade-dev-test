@@ -1,10 +1,12 @@
-import { FC } from 'react';
+import { FC, PropsWithChildren } from 'react';
 import { styles } from './LoadingStateStyles';
 
-export const LoadingState: FC = (): JSX.Element => {
+export const LoadingState: FC<PropsWithChildren> = ({
+  children,
+}): JSX.Element => {
   return (
     <div data-testid='loading-state' className={styles.contaner}>
-      <p data-testid='loading-state-title'>Calculating your taxes ...</p>
+      <p data-testid='loading-state-title'>{children}</p>
     </div>
   );
 };

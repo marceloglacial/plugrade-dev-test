@@ -8,7 +8,7 @@ export const Results: FC<IResultsProps> = ({
   isLoading,
   isError,
 }): JSX.Element => {
-  if (isLoading) return <LoadingState />;
+  if (isLoading) return <LoadingState>Calculating your taxes ...</LoadingState>;
   if (isError) return <ErrorState />;
   if (!data?.tax_brackets) return <></>;
 
