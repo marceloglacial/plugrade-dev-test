@@ -38,11 +38,16 @@ export default function Home() {
   }, [isSubmiting, taxData.year]);
 
   return (
-    <main className='py-16 p-4 md:p-24'>
-      <div className='income-form flex flex-wrap gap-8'>
+    <main className={styles.main}>
+      <div className={styles.container}>
         <IncomeForm {...dataStateProps} />
         <Results {...resultProps} />
       </div>
     </main>
   );
 }
+
+const styles = {
+  main: 'main-page py-16 p-4 md:p-24',
+  container: 'main-page__container flex flex-wrap gap-8',
+};

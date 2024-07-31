@@ -2,13 +2,15 @@
 import { DEFAULT_YEAR, MIN_INCOME } from '@/constants';
 import { useYears } from '@/hooks';
 import { FC, useState } from 'react';
+import { ErrorState } from '@/components';
+import { styles } from './IncomeFormStyles';
 
 export const IncomeForm: FC<IDataStateProps> = (props): JSX.Element => {
   const { data: taxYears, isLoading, isError } = useYears();
   const [formData, setFormData] = useState<FormDataType>(props.taxData);
 
   if (isLoading) return <>Loading ...</>;
-  if (isError || !taxYears) return <>Error loading data!</>;
+  if (isError || !taxYears) return <ErrorState />;
 
   const handleFormDataChanges = (e: any) => {
     return setFormData({
@@ -24,9 +26,9 @@ export const IncomeForm: FC<IDataStateProps> = (props): JSX.Element => {
   };
 
   return (
-    <div className='w-[200px] '>
-      <form className='flex flex-col gap-4' onSubmit={handleSubmit}>
-        <div className='flex flex-col'>
+    <div className={styles.container}>
+      <form className={styles.form} onSubmit={handleSubmit}>
+        <div className={styles.formGroup}>
           <label>Anual income</label>
           <input
             name='income'
@@ -36,14 +38,14 @@ export const IncomeForm: FC<IDataStateProps> = (props): JSX.Element => {
             disabled={props.isSubmiting}
             onChange={handleFormDataChanges}
             required
-            className='disabled:cursor-not-allowed disabled:opacity-30'
+            className={styles.input.disabled}
           />
         </div>
-        <div className='flex flex-col'>
+        <div className={styles.formGroup}>
           <label>Tax year</label>
           <select
             name='year'
-            className=' disabled:cursor-not-allowed disabled:opacity-30'
+            className={styles.input.disabled}
             defaultValue={DEFAULT_YEAR}
             onChange={handleFormDataChanges}
             disabled={props.isSubmiting}
@@ -57,7 +59,7 @@ export const IncomeForm: FC<IDataStateProps> = (props): JSX.Element => {
         </div>
         <div>
           <button
-            className='bg-black text-white disabled:opacity-30 px-4'
+            className={`${styles.input.submit} ${styles.input.disabled}`}
             disabled={props.isSubmiting}
           >
             Submit
