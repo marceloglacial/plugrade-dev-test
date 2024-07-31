@@ -1,9 +1,14 @@
 # Plusgrade / Points.com Dev Test
 
+[![wakatime](https://wakatime.com/badge/user/cee0e641-3254-41c3-a42e-8f3adfdfbc22/project/2cba2c59-9032-424c-9048-a0f687e17e79.svg)](https://wakatime.com/badge/user/cee0e641-3254-41c3-a42e-8f3adfdfbc22/project/2cba2c59-9032-424c-9048-a0f687e17e79) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/marceloglacial/plugrade-dev-test)
+
 Develop by [Marcelo Freitas](https://github.com/marceloglacial) using:
 
-- [Next.js](https://nextjs.org/)
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Next JS](https://nextjs.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
+- [React Testing Libraty](https://testing-library.com/)
 
 ## Pre-requisites
 
