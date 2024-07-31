@@ -2,13 +2,15 @@
 import { DEFAULT_YEAR, MIN_INCOME } from '@/constants';
 import { useYears } from '@/hooks';
 import { FC, useState } from 'react';
+import { ErrorState, LoadingState } from '@/components';
+import { styles } from './IncomeFormStyles';
 
 export const IncomeForm: FC<IDataStateProps> = (props): JSX.Element => {
   const { data: taxYears, isLoading, isError } = useYears();
   const [formData, setFormData] = useState<FormDataType>(props.taxData);
 
-  if (isLoading) return <>Loading ...</>;
-  if (isError || !taxYears) return <>Error loading data!</>;
+  if (isLoading) return <LoadingState>Loading</LoadingState>;
+  if (isError || !taxYears) return <ErrorState />;
 
   const handleFormDataChanges = (e: any) => {
     return setFormData({
@@ -24,10 +26,10 @@ export const IncomeForm: FC<IDataStateProps> = (props): JSX.Element => {
   };
 
   return (
-    <div className='w-[200px] '>
-      <form className='flex flex-col gap-4' onSubmit={handleSubmit}>
-        <div className='flex flex-col'>
-          <label>Anual income</label>
+    <div className={styles.container} data-testid='form-container'>
+      <form data-testid='form' className={styles.form} onSubmit={handleSubmit}>
+        <div className={styles.formGroup}>
+          <label data-testid='income-title'>Anual income</label>
           <input
             name='income'
             type='number'
@@ -35,17 +37,19 @@ export const IncomeForm: FC<IDataStateProps> = (props): JSX.Element => {
             defaultValue={MIN_INCOME}
             disabled={props.isSubmiting}
             onChange={handleFormDataChanges}
+            data-testid='income-input'
             required
-            className='disabled:cursor-not-allowed disabled:opacity-30'
+            className={styles.input.disabled}
           />
         </div>
-        <div className='flex flex-col'>
-          <label>Tax year</label>
+        <div className={styles.formGroup}>
+          <label data-testid='year-title'>Tax year</label>
           <select
             name='year'
-            className=' disabled:cursor-not-allowed disabled:opacity-30'
+            className={styles.input.disabled}
             defaultValue={DEFAULT_YEAR}
             onChange={handleFormDataChanges}
+            data-testid='year-select'
             disabled={props.isSubmiting}
           >
             {taxYears.map((taxYear) => (
@@ -57,7 +61,8 @@ export const IncomeForm: FC<IDataStateProps> = (props): JSX.Element => {
         </div>
         <div>
           <button
-            className='bg-black text-white disabled:opacity-30 px-4'
+            data-testid='form-submit'
+            className={`${styles.input.submit} ${styles.input.disabled}`}
             disabled={props.isSubmiting}
           >
             Submit
